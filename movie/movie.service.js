@@ -7,3 +7,5 @@ exports.getOneMovie = (id) =>
   db
     .query(`SELECT * FROM movies WHERE id = $1`, [id])
     .then((res) => res.rows[0]);
+
+exports.seed = db.seed;

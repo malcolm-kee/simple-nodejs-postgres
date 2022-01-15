@@ -10,6 +10,13 @@ movieController.get('/', (req, res, next) => {
     .catch((err) => next(err));
 });
 
+movieController.get('/seed', (_, res, next) => {
+  movieService
+    .seed()
+    .then(() => res.json({ ok: true }))
+    .catch(next);
+});
+
 movieController.get('/:id', (req, res, next) => {
   movieService
     .getOneMovie(req.params.id)
